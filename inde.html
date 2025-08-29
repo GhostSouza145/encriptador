@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoMessage - Encriptador de Mensagens</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-lock"></i>
+                <h1>CryptoMessage</h1>
+            </div>
+            <p class="tagline">Proteja suas mensagens com criptografia avançada</p>
+        </header>
+
+        <main>
+            <div class="card">
+                <h2><i class="fas fa-key"></i> Encriptar Mensagem</h2>
+                <div class="input-group">
+                    <label for="message">Mensagem Original</label>
+                    <textarea id="message" placeholder="Digite a mensagem que você quer encriptar..." rows="4"></textarea>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Senha de Criptografia</label>
+                    <input type="password" id="password" placeholder="Digite uma senha forte">
+                    <div class="password-strength">
+                        <div class="strength-bar">
+                            <div class="strength-fill"></div>
+                        </div>
+                        <div class="strength-text">Força da senha: <span>Nenhuma</span></div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="salt">Salt (Opcional)</label>
+                    <input type="text" id="salt" placeholder="Texto adicional para maior segurança">
+                </div>
+
+                <button id="encrypt-btn" class="btn primary">
+                    <i class="fas fa-lock"></i> Encriptar Mensagem
+                </button>
+            </div>
+
+            <div class="card">
+                <h2><i class="fas fa-lock-open"></i> Resultado Encriptado</h2>
+                <div class="input-group">
+                    <label for="encrypted">Mensagem Encriptada</label>
+                    <textarea id="encrypted" placeholder="Sua mensagem encriptada aparecerá aqui..." rows="4" readonly></textarea>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="copy-btn" class="btn secondary">
+                        <i class="fas fa-copy"></i> Copiar
+                    </button>
+                    <button id="clear-btn" class="btn">
+                        <i class="fas fa-broom"></i> Limpar Tudo
+                    </button>
+                </div>
+            </div>
+
+            <div class="card info">
+                <h2><i class="fas fa-info-circle"></i> Como Usar</h2>
+                <ol>
+                    <li>Digite a mensagem que deseja encriptar</li>
+                    <li>Crie uma senha forte (não a esqueça!)</li>
+                    <li>Clique em "Encriptar Mensagem"</li>
+                    <li>Copie a mensagem encriptada e compartilhe com segurança</li>
+                    <li>Para descriptografar, use a mesma senha e salt (se aplicável)</li>
+                </ol>
+                <p class="note"><strong>Nota:</strong> Este encriptador usa o algoritmo AES através da biblioteca CryptoJS. Suas mensagens são processadas localmente no seu navegador e não são enviadas para nenhum servidor.</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 CryptoMessage - Desenvolvido para proteger suas comunicações</p>
+        </footer>
+    </div>
+
+    <div class="notification" id="notification">
+        <span id="notification-text"></span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
